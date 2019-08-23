@@ -73,7 +73,7 @@
                                 <rect key="frame" x="112.5" y="108" width="150" height="162"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rOm-Yi-sA9">
-                                <rect key="frame" x="75" y="385.5" width="225" height="32.5"/>
+                                <rect key="frame" x="75" y="385.5" width="225.00000000000011" height="32.5"/>
                                 <state key="normal" title="Login" backgroundImage="btnLogin">
                                     <color key="titleColor" red="0.97548274899999998" green="0.99757593870000005" blue="0.96298147010000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -132,11 +132,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="170"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sample" translatesAutoresizingMaskIntoConstraints="NO" id="EgJ-FT-5qJ">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="170"/>
-                                                </imageView>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UtP-GJ-RWO">
-                                                    <rect key="frame" x="56.5" y="51" width="75" height="68"/>
+                                                    <rect key="frame" x="62" y="51" width="63.5" height="68"/>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="aPO-AH-ABi">
                                                     <rect key="frame" x="150" y="68" width="150" height="34"/>
@@ -144,13 +141,13 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="김신한님 안녕하세요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A8p-eW-IJq">
                                                             <rect key="frame" x="0.0" y="0.0" width="150" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                            <nil key="textColor"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오늘 하루는 어떠신가요?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C4s-Zp-8rM">
                                                             <rect key="frame" x="0.0" y="17" width="150" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                            <nil key="textColor"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -164,17 +161,14 @@
                                                     </constraints>
                                                 </stackView>
                                             </subviews>
+                                            <color key="backgroundColor" red="0.26221242547035217" green="0.26435649394989014" blue="0.37210500240325928" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstItem="UtP-GJ-RWO" firstAttribute="centerY" secondItem="K14-tS-AfT" secondAttribute="centerY" id="3m6-3D-2aD"/>
                                                 <constraint firstItem="UtP-GJ-RWO" firstAttribute="height" secondItem="K14-tS-AfT" secondAttribute="height" multiplier="0.4" id="CD5-Ye-hkn"/>
-                                                <constraint firstItem="EgJ-FT-5qJ" firstAttribute="width" secondItem="K14-tS-AfT" secondAttribute="width" id="GbD-Ps-Lmj"/>
-                                                <constraint firstItem="EgJ-FT-5qJ" firstAttribute="centerY" secondItem="K14-tS-AfT" secondAttribute="centerY" id="Nuc-g2-rST"/>
-                                                <constraint firstItem="EgJ-FT-5qJ" firstAttribute="height" secondItem="K14-tS-AfT" secondAttribute="height" id="XNQ-aw-mdL"/>
                                                 <constraint firstItem="aPO-AH-ABi" firstAttribute="width" secondItem="K14-tS-AfT" secondAttribute="width" multiplier="0.4" id="cNA-oz-o6B"/>
                                                 <constraint firstItem="aPO-AH-ABi" firstAttribute="centerY" secondItem="K14-tS-AfT" secondAttribute="centerY" id="cO4-Rn-ZhS"/>
                                                 <constraint firstItem="aPO-AH-ABi" firstAttribute="height" secondItem="K14-tS-AfT" secondAttribute="height" multiplier="0.2" id="kfM-sH-3nA"/>
-                                                <constraint firstItem="EgJ-FT-5qJ" firstAttribute="centerX" secondItem="K14-tS-AfT" secondAttribute="centerX" id="lLv-RY-fE9"/>
-                                                <constraint firstItem="UtP-GJ-RWO" firstAttribute="width" secondItem="K14-tS-AfT" secondAttribute="width" multiplier="0.2" id="oXM-Ip-UiM"/>
+                                                <constraint firstItem="UtP-GJ-RWO" firstAttribute="width" secondItem="K14-tS-AfT" secondAttribute="width" multiplier="0.17" id="oXM-Ip-UiM"/>
                                                 <constraint firstItem="UtP-GJ-RWO" firstAttribute="centerX" secondItem="K14-tS-AfT" secondAttribute="centerX" multiplier="0.5" id="rLY-vc-Fri"/>
                                                 <constraint firstItem="aPO-AH-ABi" firstAttribute="centerX" secondItem="K14-tS-AfT" secondAttribute="centerX" multiplier="1.2" id="s5D-yn-cEG"/>
                                             </constraints>
@@ -519,9 +513,10 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UC7-6R-DNB" customClass="NavigationController" customModule="Shinple" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" image="0_home_20" id="q7z-K0-ihV"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hbh-mg-6c8">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="blackTranslucent" id="hbh-mg-6c8">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.14441174270000001" green="0.1457382441" blue="0.27431154250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -538,7 +533,6 @@
         <image name="0_library_20" width="20" height="20"/>
         <image name="0_list_20" width="20" height="20"/>
         <image name="btnLogin" width="474" height="64"/>
-        <image name="sample" width="960" height="350"/>
         <image name="video" width="414" height="236"/>
     </resources>
 </document>
