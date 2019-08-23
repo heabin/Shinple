@@ -31,19 +31,11 @@ class HomeCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
         
         let status = titles[indexPath.row]
         let status2 = UIImage(named: imageFiles[indexPath.row])
-        
+    
         cell.lblTitle.text = status
         cell.imgVideo.image = status2
         
         return cell
     }
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
 
 }

@@ -43,9 +43,7 @@ class HomeTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
             return cell
         }else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "HomeCategoryTableViewCell") as! HomeCategoryTableViewCell
-            
             let status = categories[indexPath.row]
-            
             cell.lblCategory.text = status
             
             return cell

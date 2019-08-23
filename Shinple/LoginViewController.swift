@@ -14,7 +14,6 @@ extension UIColor {
 }
 
 //로그인 밑줄
-// 테스트용입니다
 extension CALayer {
     func addBorder(_ arr_edge: [UIRectEdge], color: UIColor, width: CGFloat) {
         for edge in arr_edge {
