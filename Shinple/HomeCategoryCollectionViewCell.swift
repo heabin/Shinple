@@ -11,6 +11,7 @@ import UIKit
 class HomeCategoryTableViewCell: UITableViewCell {
     
     @IBOutlet weak var lblCategory: UILabel!
+    @IBOutlet weak var collectionView: HomeCollectionView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
