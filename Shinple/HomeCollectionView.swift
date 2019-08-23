@@ -27,14 +27,15 @@ class HomeCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeVideoCollectionViewCell", for: indexPath) as! HomeVideoCollectionViewCell
         
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeVideoCollectionViewCell", for: indexPath) as! HomeVideoCollectionViewCell
+
         let status = titles[indexPath.row]
         let status2 = UIImage(named: imageFiles[indexPath.row])
-    
+            
         cell.lblTitle.text = status
         cell.imgVideo.image = status2
-        
+            
         return cell
     }
 

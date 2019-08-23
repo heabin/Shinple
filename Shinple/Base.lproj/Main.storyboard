@@ -73,7 +73,7 @@
                                 <rect key="frame" x="112.5" y="108" width="150" height="162"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rOm-Yi-sA9">
-                                <rect key="frame" x="75" y="385.5" width="225" height="32.5"/>
+                                <rect key="frame" x="75" y="385.5" width="225.00000000000011" height="32.5"/>
                                 <state key="normal" title="Login" backgroundImage="btnLogin">
                                     <color key="titleColor" red="0.97548274899999998" green="0.99757593870000005" blue="0.96298147010000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -668,11 +668,12 @@
         <!--Navigation Controller-->
         <scene sceneID="F1g-Ot-VTX">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9Pe-3S-SHT" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9Pe-3S-SHT" customClass="NavigationController" customModule="Shinple" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kOm-6N-ykJ">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.26221242550000001" green="0.26435649389999999" blue="0.3721050024" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -686,11 +687,12 @@
         <!--Navigation Controller-->
         <scene sceneID="KPW-aV-Uzf">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9xq-1z-bWR" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9xq-1z-bWR" customClass="NavigationController" customModule="Shinple" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gbj-51-p4f">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.26221242550000001" green="0.26435649389999999" blue="0.3721050024" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -704,11 +706,12 @@
         <!--Navigation Controller-->
         <scene sceneID="bH3-cq-Hoj">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="T8j-rq-Coe" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="T8j-rq-Coe" customClass="NavigationController" customModule="Shinple" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qw2-T1-UGU">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.26221242550000001" green="0.26435649389999999" blue="0.3721050024" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -728,6 +731,6 @@
         <image name="video" width="414" height="236"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="tpn-wb-vwg"/>
+        <segue reference="CHS-en-Prg"/>
     </inferredMetricsTieBreakers>
 </document>
