@@ -38,6 +38,7 @@ class HomeCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
         if collectionView.tag == 1 {
             cell.lblTitle.text = titles1[indexPath.row]
             cell.imgVideo.image = UIImage(named: imageFiles1[indexPath.row])
+            
         }
         if collectionView.tag == 2 {
             cell.lblTitle.text = titles2[indexPath.row]
@@ -47,7 +48,6 @@ class HomeCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
             cell.lblTitle.text = titles3[indexPath.row]
             cell.imgVideo.image = UIImage(named: imageFiles3[indexPath.row])
         }
-            
         return cell
     }
 

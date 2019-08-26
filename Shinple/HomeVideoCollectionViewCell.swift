@@ -14,4 +14,6 @@ class HomeVideoCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imgVideo: UIImageView!
     @IBOutlet weak var lblTitle: UILabel!
     
+    
+    
 }

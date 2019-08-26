@@ -12,6 +12,7 @@ class HomeCategoryTableViewCell: UITableViewCell {
     
     @IBOutlet weak var lblCategory: UILabel!
     @IBOutlet weak var collectionView: HomeCollectionView!
+    @IBOutlet weak var btnSeeMore: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
