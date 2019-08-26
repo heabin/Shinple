@@ -35,21 +35,19 @@ class AlertTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
         if row == 0 {
             cell.lblTitle.text = "댓글알림"
             cell.lblContent.text = "동영상 댓글에 답글이 달렸습니다."
-            cell.lblDate.text = "2019/09/09"
+            cell.lblDate.text = "19.09.09"
             
         } else if row == 1 {
             cell.lblTitle.text = "공지알림"
             cell.lblContent.text = "새로운 공지가 등록되었습니다."
-            cell.lblDate.text = "2019/09/08"
+            cell.lblDate.text = "19.09.08"
             
         } else {
             cell.lblTitle.text = "댓글알림"
             cell.lblContent.text = "동영상 댓글에 답글이 달렸습니다."
-            cell.lblDate.text = "2019/09/07"
+            cell.lblDate.text = "19.09.07"
             cell.lblColor.backgroundColor = UIColor(red: 212/255, green: 202/255, blue: 212/255, alpha:1)
         }
-        
-        cell.layout()
         
         return cell
     }
