@@ -1,17 +1,19 @@
 //
-//  MainCategoryTableViewCell.swift
-//  Login2
+//  QuestionTableViewCell.swift
+//  Shinple
 //
-//  Created by user on 20/08/2019.
+//  Created by user on 26/08/2019.
 //  Copyright © 2019 veronica. All rights reserved.
 //
 
 import UIKit
 
-class HomeCategoryTableViewCell: UITableViewCell {
-    
-    @IBOutlet weak var lblCategory: UILabel!
-    @IBOutlet weak var collectionView: HomeCollectionView!
+class QuestionTableViewCell: UITableViewCell {
+
+    @IBOutlet weak var imgState: UIImageView!
+    @IBOutlet weak var lblTitle: UILabel!
+    @IBOutlet weak var lblContent: UILabel!
+    @IBOutlet weak var lblDate: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

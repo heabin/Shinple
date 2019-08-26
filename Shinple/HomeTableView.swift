@@ -11,7 +11,7 @@ import UIKit
 
 
 class HomeTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
-    
+
     var userName = "권민재"
     var categories = ["마이페이지", "최근 시청 강의", "인기 강의", "신규 강의"]
     
@@ -19,6 +19,8 @@ class HomeTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
         self.delegate = self
         self.dataSource = self
     }
+    
+    //TableView cell
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -43,14 +45,24 @@ class HomeTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
             return cell
         }else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "HomeCategoryTableViewCell") as! HomeCategoryTableViewCell
-            
             let status = categories[indexPath.row]
-            
             cell.lblCategory.text = status
+            cell.collectionView.tag = indexPath.row
             
             return cell
         }
     }
+    
+    
+    //CollectionView cell
+    
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return 5
+//    }
+//    
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "", for: <#T##IndexPath#>)
+//    }
 
 
 }

@@ -41,11 +41,11 @@ class TabBarController: UITabBarController {
 
         // Do any additional setup after loading the view.
         
-        tabBar.barTintColor = .lightGray
+        tabBar.barTintColor = .white
         tabBar.isTranslucent = true
         
-        //tabBar.tintColor = .green
-        tabBar.unselectedItemTintColor = .darkGray
+        tabBar.tintColor = .darkGray
+        tabBar.unselectedItemTintColor = .lightGray
         
         setupStyle()
     }
@@ -53,7 +53,11 @@ class TabBarController: UITabBarController {
     func setupStyle() {
         UITabBar.clearShadow()
         tabBar.layer.applyShadow(color: .gray, alpha: 0.3, x: 0, y: 0, blur: 12)
+        tabBar.layer.preferredFrameSize()
+        tabBar.sizeThatFits(CGSize(width: 88, height: 88))
+
     }
+
 
     /*
     // MARK: - Navigation

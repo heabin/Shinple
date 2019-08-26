@@ -8,11 +8,13 @@
 
 import UIKit
 
+
 class HomeMypageTableViewCell: UITableViewCell {
     
     @IBOutlet weak var imgPicture: UIImageView!
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var lblSentence: UILabel!
+    @IBOutlet weak var lblColor: UILabel!
     
     
     
@@ -22,6 +24,7 @@ class HomeMypageTableViewCell: UITableViewCell {
         imgPicture.layer.borderColor = UIColor.lightGray.cgColor
         
     }
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
