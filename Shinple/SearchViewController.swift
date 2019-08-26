@@ -10,39 +10,74 @@ import UIKit
 
 class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UITextViewDelegate {
     
-
+    var isSearchBarFocused = false
     var lectureArray = [String]()
     var currentLectureArray = [String]()
     
+    @IBOutlet weak var btnSearchCategory: UIButton!
+    @IBOutlet weak var btnSearchHashtag: UIButton!
+    @IBOutlet weak var lblNoPreviousSample: UILabel!
+    @IBOutlet weak var lblMainLabel: UILabel!
     @IBOutlet weak var table: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-//        let navBarButton = UIBarButtonItem(customView:searchBar)
-//        self.navigationItem.leftBarButtonItem = navBarButton
-//        let sampleButton = UIBarButtonItem()
-//        self.navigationItem.leftBarButtonItems?.append(sampleButton)
         setUpLectures()
         setUpSearchBar()
-//        view.frame = CGRect(x: keyWindow.frame.width - 10, y: keyWindow.frame.height, width: 10, height: 10)
+        self.view.bringSubviewToFront(lblMainLabel)
+        self.view.bringSubviewToFront(btnSearchHashtag)
+        self.view.bringSubviewToFront(btnSearchCategory)
+        table.separatorStyle = UITableViewCell.SeparatorStyle.none
     }
     
     private func setUpSearchBar() {
+        // Make back button
+        let button = UIButton(frame: CGRect(x: 0, y: self.view.frame.size.height/2, width: 20, height: 100))
+        button.setTitle("뒤로가기", for: .normal)
+        button.backgroundColor = UIColor.lightGray
+        button.addTarget(self, action: #selector(backButtonPressed(_:)), for: .touchUpInside)
+        
+        // link search bar delegate with self
         searchBar.delegate = self
+        
+        // add back button and search bar in navigation object
+        self.navigationItem.leftBarButtonItems = [UIBarButtonItem(customView: button), UIBarButtonItem(customView:searchBar)]
     }
     
+    @objc private func backButtonPressed(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+
+    
     private func setUpLectures() {
+        // This is sample data!@!@
         lectureArray.append("ICT 바로알기")
         lectureArray.append("클라우드 바로알기")
         lectureArray.append("오늘 점심은 닭곰탕")
         lectureArray.append("오늘 약속은 사당역")
         lectureArray.append("불금임")
         lectureArray.append("IOS 화이팅")
-        
-        currentLectureArray = lectureArray
+        lectureArray.append("ICT 바로알기")
+        lectureArray.append("클라우드 바로알기")
+        lectureArray.append("오늘 점심은 닭곰탕")
+        lectureArray.append("오늘 약속은 사당역")
+        lectureArray.append("불금임")
+        lectureArray.append("IOS 화오이팅")
+        lectureArray.append("ICT 바로알기")
+        lectureArray.append("클라우드 바로알기")
+        lectureArray.append("오늘 점심은 닭곰탕")
+        lectureArray.append("오늘 약속은 사당역")
+        lectureArray.append("불금오점임")
+        lectureArray.append("IOS 화이팅")
+        lectureArray.append("ICT 바로알기")
+        lectureArray.append("클라우드 바로알기")
+        lectureArray.append("오늘 점심은 닭곰탕")
+        lectureArray.append("오늘 약속은 사당역")
+        lectureArray.append("불금점점임")
+        lectureArray.append("IOS 화이점점팅")
 
+        currentLectureArray = lectureArray
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -54,6 +89,13 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
             return UITableViewCell()
         }
         cell.lblLecture.text = currentLectureArray[indexPath.row]
+        if isSearchBarFocused == false {
+            searchBar.showsCancelButton = false
+            cell.isHidden = true
+        } else {
+            searchBar.showsCancelButton = true
+            cell.isHidden = false
+        }
         return cell
     }
 
@@ -61,40 +103,50 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         return 50
     }
     
-    
+    // called when text starts editing
+    @available(iOS 2.0, *)
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        isSearchBarFocused = true
+        self.searchBar.showsCancelButton = true
+        self.view.bringSubviewToFront(lblNoPreviousSample)
+        print("searchBarTextDidBeginEditing")
+    }
+
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard !searchText.isEmpty else {
+            self.view.bringSubviewToFront(lblNoPreviousSample)
+            table.isHidden = true
             currentLectureArray = lectureArray
             table.reloadData()
             return
         }
-        print(String(searchBar.isFocused))
+        table.isHidden = false
+        self.view.bringSubviewToFront(table)
         currentLectureArray = lectureArray.filter({ lecture -> Bool in
             lecture.lowercased().contains(searchText.lowercased())
         })
         table.reloadData()
     }
     
-    
-//    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-//
-//    }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // called when cancel button pressed
+    @available(iOS 2.0, *)
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        isSearchBarFocused = false
+        table.reloadData()
+        self.view.bringSubviewToFront(lblMainLabel)
+        self.view.bringSubviewToFront(btnSearchHashtag)
+        self.view.bringSubviewToFront(btnSearchCategory)
+        searchBar.endEditing(true)
+        self.searchBar.text = ""
+        self.searchBar.showsCancelButton = false
     }
-    */
 
+    
 }
 
 class lecture {
     let title: String
-    
     init(_ title:String) {
         self.title = title
     }
