@@ -73,7 +73,7 @@
                                 <rect key="frame" x="112.5" y="108" width="150" height="162"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rOm-Yi-sA9">
-                                <rect key="frame" x="75" y="385.5" width="225" height="32.5"/>
+                                <rect key="frame" x="75" y="385.5" width="225.00000000000011" height="32.5"/>
                                 <state key="normal" title="Login" backgroundImage="btnLogin">
                                     <color key="titleColor" red="0.97548274899999998" green="0.99757593870000005" blue="0.96298147010000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -457,10 +457,10 @@
             </objects>
             <point key="canvasLocation" x="1310" y="2005"/>
         </scene>
-        <!--Hotlist Table View Controller-->
+        <!--Hot List Table View Controller-->
         <scene sceneID="gDe-Gq-Pyy">
             <objects>
-                <tableViewController id="9vk-Kx-xtW" customClass="HotlistTableViewController" customModule="Shinple" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="9vk-Kx-xtW" customClass="HotListTableViewController" customModule="Shinple" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="WD8-ax-SI8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -469,7 +469,7 @@
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="vJo-Fp-O1T">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vJo-Fp-O1T" id="Luy-gu-uzA" customClass="HotlistTableViewCell" customModule="Shinple" customModuleProvider="target">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vJo-Fp-O1T" id="Luy-gu-uzA" customClass="HotListTableViewCell" customModule="Shinple" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
@@ -513,6 +513,7 @@
                     <connections>
                         <segue destination="rTo-qb-afW" kind="relationship" relationship="viewControllers" id="inz-GE-YgM"/>
                         <segue destination="t65-Ma-Tl4" kind="relationship" relationship="viewControllers" id="kEB-YH-WVl"/>
+                        <segue destination="RU5-cO-KvE" kind="relationship" relationship="viewControllers" id="v3D-8D-bCV"/>
                         <segue destination="YLE-4m-68e" kind="relationship" relationship="viewControllers" id="0gf-Tj-VsD"/>
                     </connections>
                 </tabBarController>
@@ -520,10 +521,10 @@
             </objects>
             <point key="canvasLocation" x="3129" y="-325"/>
         </scene>
-        <!--Mylist Table View Controller-->
+        <!--My List Table View Controller-->
         <scene sceneID="Htm-Ei-3Q7">
             <objects>
-                <tableViewController id="t65-Ma-Tl4" customClass="MylistTableViewController" customModule="Shinple" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="t65-Ma-Tl4" customClass="MyListTableViewController" customModule="Shinple" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="KoT-ST-iEi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -532,7 +533,7 @@
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="33M-mk-J5h">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="33M-mk-J5h" id="YLg-Wd-eza" customClass="MylistTableViewCell" customModule="Shinple" customModuleProvider="target">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="33M-mk-J5h" id="YLg-Wd-eza" customClass="MyListTableViewCell" customModule="Shinple" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -558,6 +559,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I3J-sS-rN2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3129" y="454"/>
+        </scene>
+        <!--Favorite List Table View Controller-->
+        <scene sceneID="8RK-rB-KB4">
+            <objects>
+                <tableViewController id="RU5-cO-KvE" customClass="FavoriteListTableViewController" customModule="Shinple" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="05b-Zd-52J">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="a2K-wz-qhY" customClass="FavoriteListTableViewCell" customModule="Shinple" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="a2K-wz-qhY" id="xhT-zL-YYC">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="RU5-cO-KvE" id="v19-dj-QPi"/>
+                            <outlet property="delegate" destination="RU5-cO-KvE" id="FMv-C2-DR3"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="0mn-5A-MJ5"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ap9-bo-n80" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4713" y="454"/>
         </scene>
         <!--My Page View Controller-->
         <scene sceneID="FQY-oD-yqd">
@@ -591,6 +621,14 @@
                                     <segue destination="9xL-TJ-0PR" kind="show" id="cIp-wv-k1G"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SsL-CV-9wE">
+                                <rect key="frame" x="20" y="417" width="82" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="수강완료 강의"/>
+                                <connections>
+                                    <segue destination="MUL-yy-b8T" kind="show" id="k0x-fL-vYe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="SM2-dp-8QK"/>
@@ -599,7 +637,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OnF-9k-V2X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5065" y="1212"/>
+            <point key="canvasLocation" x="6908" y="1233"/>
         </scene>
         <!--마이페이지-->
         <scene sceneID="vEm-YU-8lm">
@@ -615,7 +653,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JoW-sg-owZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4198" y="2005"/>
+            <point key="canvasLocation" x="5886" y="2005"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="e00-la-cnD">
@@ -755,7 +793,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bbm-aI-Uin" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5064.8000000000002" y="2004.6476761619192"/>
+            <point key="canvasLocation" x="6908" y="2005"/>
         </scene>
         <!--문의하기-->
         <scene sceneID="OuS-a4-eNl">
@@ -815,7 +853,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ROZ-Io-nmi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5065" y="2795"/>
+            <point key="canvasLocation" x="6908" y="2798"/>
         </scene>
         <!--알림함-->
         <scene sceneID="BwJ-vu-Pfg">
@@ -907,7 +945,35 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qeP-Mt-fpa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5912.8000000000002" y="2004.6476761619192"/>
+            <point key="canvasLocation" x="7972" y="2005"/>
+        </scene>
+        <!--End List Table View Controller-->
+        <scene sceneID="dB9-Dx-bqb">
+            <objects>
+                <tableViewController id="MUL-yy-b8T" customClass="EndListTableViewController" customModule="Shinple" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Kc4-1M-eYS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="50g-z2-dST" customClass="EndListTableViewCell" customModule="Shinple" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="50g-z2-dST" id="BDP-Fp-Wr4">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="MUL-yy-b8T" id="BET-8k-HHF"/>
+                            <outlet property="delegate" destination="MUL-yy-b8T" id="tL0-8a-Khp"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6AE-r0-OBW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8830" y="2002"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="CbU-mB-T4N">
@@ -927,7 +993,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuN-mj-9Up" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5065" y="454"/>
+            <point key="canvasLocation" x="6908" y="454"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="f2Y-jC-BmR">
@@ -959,6 +1025,6 @@
         <image name="video" width="414" height="236"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5Jz-0u-Xrm"/>
+        <segue reference="kEB-YH-WVl"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -1,5 +1,5 @@
 //
-//  MylistTableViewController.swift
+//  FavoriteListTableViewController.swift
 //  Shinple
 //
 //  Created by user on 27/08/2019.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MylistTableViewController: UITableViewController {
+class FavoriteListTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

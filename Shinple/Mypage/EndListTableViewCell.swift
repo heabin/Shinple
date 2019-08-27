@@ -1,5 +1,5 @@
 //
-//  MylistTableViewCell.swift
+//  EndTableViewCell.swift
 //  Shinple
 //
 //  Created by user on 27/08/2019.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MylistTableViewCell: UITableViewCell {
+class EndListTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -1,5 +1,5 @@
 //
-//  HotlistTableViewCell.swift
+//  MylistTableViewCell.swift
 //  Shinple
 //
 //  Created by user on 27/08/2019.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HotlistTableViewCell: UITableViewCell {
+class MyListTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()

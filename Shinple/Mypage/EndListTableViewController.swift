@@ -1,5 +1,5 @@
 //
-//  HotlistTableViewController.swift
+//  EndListTableViewController.swift
 //  Shinple
 //
 //  Created by user on 27/08/2019.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HotlistTableViewController: UITableViewController {
+class EndListTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
