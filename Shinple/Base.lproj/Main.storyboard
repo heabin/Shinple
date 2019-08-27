@@ -73,7 +73,7 @@
                                 <rect key="frame" x="112.5" y="108" width="150" height="162"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rOm-Yi-sA9">
-                                <rect key="frame" x="75" y="385.5" width="225.00000000000011" height="32.5"/>
+                                <rect key="frame" x="75" y="385.5" width="225" height="32.5"/>
                                 <state key="normal" title="Login" backgroundImage="btnLogin">
                                     <color key="titleColor" red="0.97548274899999998" green="0.99757593870000005" blue="0.96298147010000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -485,13 +485,20 @@
             </objects>
             <point key="canvasLocation" x="2298" y="2005"/>
         </scene>
-        <!--View Controller-->
+        <!--Video Detail View Controller-->
         <scene sceneID="e6l-ax-j0u">
             <objects>
-                <viewController id="AP0-hn-zDU" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="videoDetails" id="AP0-hn-zDU" customClass="VideoDetailViewController" customModule="Shinple" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="h0q-Gb-Zmi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="loW-9x-L3U">
+                                <rect key="frame" x="142" y="318" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="cj0-2t-79B"/>
                     </view>
@@ -524,7 +531,7 @@
         <!--My List Table View Controller-->
         <scene sceneID="Htm-Ei-3Q7">
             <objects>
-                <tableViewController id="t65-Ma-Tl4" customClass="MyListTableViewController" customModule="Shinple" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="MyListTableViewController" id="t65-Ma-Tl4" customClass="MyListTableViewController" customModule="Shinple" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="KoT-ST-iEi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1025,6 +1032,6 @@
         <image name="video" width="414" height="236"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kEB-YH-WVl"/>
+        <segue reference="5Jz-0u-Xrm"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -16,6 +16,7 @@ class HomeCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
     var imageFiles2 = ["video5.png", "video4.png", "video3.png", "video2.png", "video.png"]
     var titles3 = ["A TWOSOME PLACE", "Level UP! 막심커피", "스타벅스", "개인적으로 할리스짱", "배고프다"]
     var imageFiles3 = ["video3.png", "video2.png", "video.png", "video4.png", "video5.png"]
+
     
     
     override func awakeFromNib() {
@@ -43,6 +44,7 @@ class HomeCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
         if collectionView.tag == 2 {
             cell.lblTitle.text = titles2[indexPath.row]
             cell.imgVideo.image = UIImage(named: imageFiles2[indexPath.row])
+            
         }
         if collectionView.tag == 3 {
             cell.lblTitle.text = titles3[indexPath.row]
@@ -50,5 +52,15 @@ class HomeCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
         }
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeViedoCollectionViewCell", for: indexPath) as! HomeVideoCollectionViewCell
+        
+        HomeTableViewController().goToDetailPage()
 
+    }
+    
+    
+
+    
 }
