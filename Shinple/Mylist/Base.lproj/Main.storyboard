@@ -216,6 +216,9 @@
                                                             <state key="normal" title="더보기 &gt;">
                                                                 <color key="titleColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
+                                                            <connections>
+                                                                <segue destination="t65-Ma-Tl4" kind="show" identifier="goToLibrary" id="RgE-yv-o3l"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                 </stackView>
@@ -299,7 +302,6 @@
                     <connections>
                         <segue destination="Zm7-o1-ht9" kind="show" identifier="goToNew" id="riQ-FI-DC3"/>
                         <segue destination="9vk-Kx-xtW" kind="show" identifier="goToPopular" id="Ug5-SF-fH6"/>
-                        <segue destination="t65-Ma-Tl4" kind="show" identifier="goToLibrary" id="5Jz-0u-Xrm"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="feg-Kj-l7m" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -429,10 +431,10 @@
             </objects>
             <point key="canvasLocation" x="119" y="2005"/>
         </scene>
-        <!--Newlist Table View Controller-->
+        <!--Table View Controller-->
         <scene sceneID="4k7-at-dvU">
             <objects>
-                <tableViewController id="Zm7-o1-ht9" customClass="NewlistTableViewController" customModule="Shinple" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Zm7-o1-ht9" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="RKA-2j-AiI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -441,7 +443,7 @@
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Oxg-VI-vmR">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Oxg-VI-vmR" id="t26-1f-yFW" customClass="NewlistTableViewCell" customModule="Shinple" customModuleProvider="target">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Oxg-VI-vmR" id="t26-1f-yFW">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
@@ -457,10 +459,10 @@
             </objects>
             <point key="canvasLocation" x="1310" y="2005"/>
         </scene>
-        <!--Hotlist Table View Controller-->
+        <!--Table View Controller-->
         <scene sceneID="gDe-Gq-Pyy">
             <objects>
-                <tableViewController id="9vk-Kx-xtW" customClass="HotlistTableViewController" customModule="Shinple" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="9vk-Kx-xtW" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="WD8-ax-SI8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -469,7 +471,7 @@
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="vJo-Fp-O1T">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vJo-Fp-O1T" id="Luy-gu-uzA" customClass="HotlistTableViewCell" customModule="Shinple" customModuleProvider="target">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vJo-Fp-O1T" id="Luy-gu-uzA">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
@@ -559,10 +561,10 @@
             </objects>
             <point key="canvasLocation" x="3129" y="454"/>
         </scene>
-        <!--My Page View Controller-->
+        <!--View Controller-->
         <scene sceneID="FQY-oD-yqd">
             <objects>
-                <viewController id="qUv-Bx-vPR" customClass="MyPageViewController" customModule="Shinple" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="qUv-Bx-vPR" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="D1H-T6-sac">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -604,7 +606,7 @@
         <!--마이페이지-->
         <scene sceneID="vEm-YU-8lm">
             <objects>
-                <viewController id="68V-HF-2bz" customClass="MoreTapViewController" customModule="Shinple" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="68V-HF-2bz" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0BE-zL-xlR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -760,7 +762,7 @@
         <!--문의하기-->
         <scene sceneID="OuS-a4-eNl">
             <objects>
-                <viewController title="문의하기" id="l8P-jG-5dl" customClass="AskingViewController" customModule="Shinple" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="문의하기" id="l8P-jG-5dl" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="n4W-ei-V8Y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -959,6 +961,6 @@
         <image name="video" width="414" height="236"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5Jz-0u-Xrm"/>
+        <segue reference="kEB-YH-WVl"/>
     </inferredMetricsTieBreakers>
 </document>
