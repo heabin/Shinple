@@ -43,6 +43,7 @@ class HomeCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
         if collectionView.tag == 2 {
             cell.lblTitle.text = titles2[indexPath.row]
             cell.imgVideo.image = UIImage(named: imageFiles2[indexPath.row])
+            
         }
         if collectionView.tag == 3 {
             cell.lblTitle.text = titles3[indexPath.row]
