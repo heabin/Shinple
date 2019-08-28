@@ -61,6 +61,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     var SaveOn = false
 
+    // MARK : DAEUN 로그인 정보, 추후 DB에서 가지고 와야함
+    let id = "shinple"
+    let pw = "123"
     
     
     
@@ -127,35 +130,45 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-
-    
     
     //MARK: - Action
     //login
     @IBAction func btnLogin(_ sender: Any) {
         //텍스트박스의 로그의 로그인(아이디, 비밀번호) 규칙을 해야한다.
         
-        //텍스트박스 박스에 공백이 아니면,
-        if !(txtID.text!.isEmpty || txtPW.text!.isEmpty) {
-            if SaveOn {
-                print("로그인 정보 저장하기")
-                //로그인 정보 저장하기
-                UserDefaults.standard.set(txtID.text, forKey: "id")
-                UserDefaults.standard.set(txtPW.text, forKey: "pw")
-            }
-//            print("로그인하기")
-//            print("=====" + UserDefaults.standard.string(forKey: "id")!)
-//            print("=====" + UserDefaults.standard.string(forKey: "pw")!)
-        }
-    }
-    
-    @IBAction func saveOnOff(_ sender: UISwitch) {
+//        //텍스트박스 박스에 공백이 아니면,
+//        if !(txtID.text!.isEmpty || txtPW.text!.isEmpty) {
+//            if SaveOn {
+//                print("로그인 정보 저장하기")
+//                //로그인 정보 저장하기
+//                UserDefaults.standard.set(txtID.text, forKey: "id")
+//                UserDefaults.standard.set(txtPW.text, forKey: "pw")
+//            }
+////            print("로그인하기")
+////            print("=====" + UserDefaults.standard.string(forKey: "id")!)
+////            print("=====" + UserDefaults.standard.string(forKey: "pw")!)
+//        }
         
-        if sender.isOn {
-            SaveOn = true
-        } else {
-            SaveOn = false
+        // MARK : - DAEUN 로그인
+        // 아이디와 비밀번호가 일치하면 아이디를 userDefaults.standart에 저장
+        if txtID.text! == id && pw == txtPW.text! {
+            UserDefaults.standard.set(txtID.text, forKey: "id")
+            
+            let myTabBar = self.storyboard?.instantiateViewController(withIdentifier: "myTabBar") as! UITabBarController
+            
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.window?.rootViewController = myTabBar
+            
+            //            let vc = storyboard?.instantiateViewController(withIdentifier: "myTabBar")
+            //            navigationController?.pushViewController(vc!, animated: true)
+        }else{
+            let alert = UIAlertController(title: "경고", message: "아이디 혹은 비밀번호가 맞지 않습니다.", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(ok)
+            present(alert, animated: true, completion: nil)
         }
+        
+        
     }
     
 
