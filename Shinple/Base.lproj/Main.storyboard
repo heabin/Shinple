@@ -823,16 +823,65 @@
             </objects>
             <point key="canvasLocation" x="-338" y="2847"/>
         </scene>
-        <!--View Controller-->
+        <!--Find By Tag View Controller-->
         <scene sceneID="uKa-U4-Kfz">
             <objects>
-                <viewController id="dnG-88-CVL" sceneMemberID="viewController">
+                <viewController id="dnG-88-CVL" customClass="FindByTagViewController" customModule="Shinple" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Bf0-It-KuC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Adg-7o-CP7">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="delegate" destination="dnG-88-CVL" id="EjN-jO-aCE"/>
+                                </connections>
+                            </scrollView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nSf-xQ-my3">
+                                <rect key="frame" x="0.0" y="527" width="375" height="90"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zd5-NZ-dSd">
+                                        <rect key="frame" x="0.0" y="0.0" width="187.5" height="90"/>
+                                        <color key="backgroundColor" red="0.45009386540000001" green="0.98132258650000004" blue="0.4743030667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="initClicked"/>
+                                        <connections>
+                                            <action selector="initClickedItems:" destination="dnG-88-CVL" eventType="touchUpInside" id="RqG-UO-y0B"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m4H-Mk-oqm">
+                                        <rect key="frame" x="187.5" y="0.0" width="187.5" height="90"/>
+                                        <color key="backgroundColor" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="search"/>
+                                        <connections>
+                                            <action selector="searchClickedItems:" destination="dnG-88-CVL" eventType="touchUpInside" id="ZXJ-dO-k7v"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="JwV-8i-Xaq"/>
+                                    <constraint firstItem="zd5-NZ-dSd" firstAttribute="width" secondItem="nSf-xQ-my3" secondAttribute="width" multiplier="0.5" id="hNk-DR-mAt"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Adg-7o-CP7" firstAttribute="top" secondItem="cUC-cZ-ZMU" secondAttribute="top" id="1bL-Gh-OFe"/>
+                            <constraint firstItem="cUC-cZ-ZMU" firstAttribute="bottom" secondItem="Adg-7o-CP7" secondAttribute="bottom" id="26H-VC-Wvw"/>
+                            <constraint firstItem="nSf-xQ-my3" firstAttribute="leading" secondItem="cUC-cZ-ZMU" secondAttribute="leading" id="A09-9n-eTT"/>
+                            <constraint firstItem="cUC-cZ-ZMU" firstAttribute="trailing" secondItem="nSf-xQ-my3" secondAttribute="trailing" id="eE4-vu-31F"/>
+                            <constraint firstAttribute="trailing" secondItem="Adg-7o-CP7" secondAttribute="trailing" id="gTA-U6-s8L"/>
+                            <constraint firstAttribute="bottom" secondItem="nSf-xQ-my3" secondAttribute="bottom" constant="50" id="lfS-ua-9mp"/>
+                            <constraint firstItem="Adg-7o-CP7" firstAttribute="leading" secondItem="cUC-cZ-ZMU" secondAttribute="leading" id="oNg-7e-knH"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="cUC-cZ-ZMU"/>
                     </view>
+                    <connections>
+                        <outlet property="initClicked" destination="zd5-NZ-dSd" id="bEJ-N8-5wj"/>
+                        <outlet property="scrollView" destination="Adg-7o-CP7" id="ZHn-YJ-UZL"/>
+                        <outlet property="search" destination="m4H-Mk-oqm" id="Ew8-dR-Zq8"/>
+                        <outlet property="stackView" destination="nSf-xQ-my3" id="a2L-5t-Zg5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Tv-eN-BE1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
