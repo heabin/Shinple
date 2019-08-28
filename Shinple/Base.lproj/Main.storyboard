@@ -73,7 +73,7 @@
                                 <rect key="frame" x="112.5" y="108" width="150" height="162"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rOm-Yi-sA9">
-                                <rect key="frame" x="75" y="385.5" width="225.00000000000011" height="32.5"/>
+                                <rect key="frame" x="75" y="385.5" width="225" height="32.5"/>
                                 <state key="normal" title="Login" backgroundImage="btnLogin">
                                     <color key="titleColor" red="0.97548274899999998" green="0.99757593870000005" blue="0.96298147010000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -1498,6 +1498,6 @@
         <image name="video" width="414" height="236"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="SGA-st-CVG"/>
+        <segue reference="bwi-sR-NXo"/>
     </inferredMetricsTieBreakers>
 </document>

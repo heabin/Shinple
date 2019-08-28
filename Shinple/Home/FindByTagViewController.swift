@@ -54,7 +54,8 @@ class FindByTagViewController: UIViewController {
     }
     
     func setButtons(_ data: [String], famousIndex: Int) {
-        var rowSizeLeft = UIScreen.main.bounds.maxX * 1.8
+        var rowSizeLeft =  UIApplication.shared.keyWindow?.frame.width
+//            UIScreen.main.bounds.maxX * 1.8
         var rowX = CGFloat(5)
         var heightY = CGFloat(50)
         let spacing = CGFloat(5)
@@ -72,7 +73,7 @@ class FindByTagViewController: UIViewController {
             }
             let button = setButton(data[index])
             let nowItemSizeX = button.center.x * 2 + spacing
-            if (nowItemSizeX + rowX) > rowSizeLeft {
+            if (nowItemSizeX + rowX) > rowSizeLeft! {
                 rowSizeLeft = UIScreen.main.bounds.maxX * 1.8
                 heightY += button.center.y * 2.5 + spacing
                 rowX = CGFloat(5)
@@ -81,7 +82,7 @@ class FindByTagViewController: UIViewController {
             button.tag = index
             buttons.append(button)
             self.scrollView.addSubview(button)
-            rowSizeLeft -= nowItemSizeX
+            rowSizeLeft! -= nowItemSizeX
             rowX += nowItemSizeX
         }
         nowYOffset = heightY + CGFloat(100)
