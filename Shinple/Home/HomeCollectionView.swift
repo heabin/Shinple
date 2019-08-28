@@ -57,7 +57,6 @@ class HomeCollectionView: UICollectionView, UICollectionViewDataSource, UICollec
 //        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeViedoCollectionViewCell", for: indexPath) as! HomeVideoCollectionViewCell
         
         HomeTableViewController().goToDetailPage()
-
     }
     
     

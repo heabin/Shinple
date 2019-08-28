@@ -12,12 +12,29 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    
+    // MARK: - DAEUN
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        UINavigationBar.appearance().tintColor = .black
+        UINavigationBar.appearance().tintColor = .black // 다은 삽입전에 있던 코드
+        
+        check()
         return true
+    }
+    
+    // MARK: - DAEUN
+    // 자동로그인
+    func check(){
+        if UserDefaults.standard.value(forKey: "id") != nil{
+            let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "myTabBar")
+            
+            //let layout = UICollectionViewFlowLayout()
+            
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            
+            appDelegate.window?.rootViewController = vc
+            appDelegate.window?.makeKeyAndVisible()
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
