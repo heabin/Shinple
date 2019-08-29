@@ -10,8 +10,11 @@ import UIKit
 
 class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UITextViewDelegate {
     
-    let darkBlue = UIColor(red: 11/255, green: 25/255, blue: 102/255, alpha: 1)
-    let lightGray = UIColor(red: 89/255, green: 89/255, blue: 89/255, alpha: 1)
+    let colorLightGray = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1)
+    
+    let colorStartBlue = UIColor(red: 37/255, green: 97/255, blue: 166/255, alpha: 1)
+    let colorMiddleBlue = UIColor(red: 45/255, green: 132/255, blue: 194/255, alpha: 1)
+    let colorEndBlue = UIColor(red: 53/255, green: 169/255, blue: 223/255, alpha: 1)
 
     var isSearchBarFocused = false
     var lectureArray = [String]()
@@ -41,6 +44,10 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var table: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
+    
+    
+    //-------------viewDidLoad-------------
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpSampleData()
@@ -50,6 +57,10 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         self.view.bringSubviewToFront(btnSearchCategory)
         table.separatorStyle = UITableViewCell.SeparatorStyle.none
     }
+    
+    
+    
+    //-------------최근 검색 리스트-------------
     func setSearchedList() {
         let subViews = searchedScrollView.subviews
         for subview in subViews{
@@ -64,24 +75,30 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         label.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height:25)
         searchedScrollView.addSubview(label)
         label.font = UIFont.systemFont(ofSize: 12)
-        label.backgroundColor = UIColor(red: 200/255, green: 200/255, blue: 200/255, alpha: 1)
-        label.textColor = UIColor.white
+        label.backgroundColor = colorLightGray
+        label.textColor = UIColor.black
 
         for index in 0..<searchedBefore.count {
             setSearched(x: UIScreen.main.bounds.size.width/4, y: heightY, message: searchedBefore[index], rowSize: rowSizeLeft, width: width, index:index)
             heightY += CGFloat(custom.heightSpacing)
         }
+        
         let button = UIButton()
         button.frame = CGRect(origin: CGPoint(x: UIScreen.main.bounds.size.width/2-CGFloat(custom.buttonSizing/2), y:heightY+CGFloat(10)), size: CGSize(width: custom.buttonSizing, height: custom.height))
 
         searchedScrollView.addSubview(button)
-        button.backgroundColor = darkBlue
+        button.backgroundColor = colorEndBlue
         button.setTitle("전체삭제", for: .normal)
         button.layer.cornerRadius = 10
         button.setTitleColor(UIColor.white, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 12)
         button.addTarget(self, action: #selector(deleteSearchedAll), for: .touchUpInside)
     }
+    
+    
+    
+    //-------------최근 검색 리스트-------------
+    
     func setSearched(x: CGFloat, y: CGFloat!, message: String!, rowSize: CGFloat!, width: CGFloat, index:Int) {
         let labelButton = UIButton()
         labelButton.setTitle(message, for: .normal)
@@ -100,9 +117,11 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         button.tag = index
     }
     
+    
     @objc func clickedSearched(sender: UIButton) {
         print(sender.currentTitle!)
     }
+    
     
     @objc func deleteSearched(sender: UIButton) {
         let index = sender.tag
@@ -113,6 +132,8 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
             setSearchedList()
         }
     }
+    
+    
     @objc func deleteSearchedAll() {
         searchedBefore.removeAll()
         self.view.bringSubviewToFront(lblNoPreviousSample)
@@ -120,25 +141,28 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
 
     
     private func loadMain() {
-        btnSearchCategory.backgroundColor = darkBlue
-        btnSearchCategory.setTitleColor(UIColor.white, for: .normal)
-        btnSearchHashtag.backgroundColor = darkBlue
-        btnSearchHashtag.setTitleColor(UIColor.white, for: .normal)
+        btnSearchCategory.backgroundColor = colorLightGray
+        btnSearchCategory.setTitleColor(UIColor.black, for: .normal)
+        btnSearchHashtag.backgroundColor = colorLightGray
+        btnSearchHashtag.setTitleColor(UIColor.black, for: .normal)
 
         lblNoPreviousSample.text = "최근 검색결과가 없습니다"
-        lblNoPreviousSample.textColor = lightGray
+        lblNoPreviousSample.textColor = .black
         lblNoPreviousSample.font.withSize(CGFloat(12))
-        lblNoPreviousSample.backgroundColor = UIColor.white
+        lblNoPreviousSample.backgroundColor = .white
         if !searchedBefore.isEmpty {
             self.view.bringSubviewToFront(searchedScrollView)
             setSearchedList()
         }
     }
     
+    
+    //-------------Bar 셋팅&기능-------------
+    
     private func setUpSearchBar() {
         // Make back button
         let button = UIButton(frame: CGRect(x: 0, y: self.view.frame.size.height/2, width: 20, height: 100))
-        button.setImage(UIImage(named: "0_home_20.png"), for: .normal)
+        button.setImage(UIImage(named: "0_home_20_white.png"), for: .normal)
         button.imageEdgeInsets = UIEdgeInsets(top: 1, left: 1, bottom: 1, right: 1)
         button.addTarget(self, action: #selector(backButtonPressed(_:)), for: .touchUpInside)
         
@@ -153,6 +177,10 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         self.navigationController?.popViewController(animated: true)
     }
 
+    
+    
+    //-------------샘플 데이터-------------
+    
     // MARK: Data should be put(this setup should be set in appear-stage(lifecycle))
     private func setUpSampleData(type:String = "all") {
         if type == "all" {
