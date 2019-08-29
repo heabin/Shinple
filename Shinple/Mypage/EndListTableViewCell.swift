@@ -10,6 +10,14 @@ import UIKit
 
 class EndListTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var imgVideo: UIImageView!
+    @IBOutlet weak var imgFavorite: UIImageView!
+    @IBOutlet weak var lblTitle: UILabel!
+    @IBOutlet weak var lblContent: UILabel!
+    @IBOutlet weak var lblDate: UILabel!
+    @IBOutlet weak var lblWatchingTime: UILabel!
+    @IBOutlet weak var imgCheck: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
