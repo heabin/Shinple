@@ -10,32 +10,136 @@ import UIKit
 
 class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UITextViewDelegate {
     
+    let darkBlue = UIColor(red: 11/255, green: 25/255, blue: 102/255, alpha: 1)
+    let lightGray = UIColor(red: 89/255, green: 89/255, blue: 89/255, alpha: 1)
+
     var isSearchBarFocused = false
     var lectureArray = [String]()
     var currentLectureArray = [String]()
+    var searchedBefore = [String?]()
+    struct cgFloatInt {
+        var width: Int
+        var height: Int
+        var widthSpacing: Int
+        var heightSpacing: Int
+        var buttonSizing: Int
+        init(w: Int, h:Int, ws:Int, hs:Int, bs:Int) {
+            width = w
+            height = h
+            widthSpacing = ws
+            heightSpacing = hs
+            buttonSizing = bs
+        }
+    }
+    var custom: cgFloatInt = cgFloatInt(w: 25, h: 30, ws: 200, hs:35, bs:100)
     
+
+    @IBOutlet weak var searchedScrollView: UIScrollView!
     @IBOutlet weak var btnSearchCategory: UIButton!
     @IBOutlet weak var btnSearchHashtag: UIButton!
     @IBOutlet weak var lblNoPreviousSample: UILabel!
-    @IBOutlet weak var lblMainLabel: UILabel!
     @IBOutlet weak var table: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpLectures()
+        setUpSampleData()
+        loadMain()
         setUpSearchBar()
-        self.view.bringSubviewToFront(lblMainLabel)
         self.view.bringSubviewToFront(btnSearchHashtag)
         self.view.bringSubviewToFront(btnSearchCategory)
         table.separatorStyle = UITableViewCell.SeparatorStyle.none
+    }
+    func setSearchedList() {
+        let subViews = searchedScrollView.subviews
+        for subview in subViews{
+            subview.removeFromSuperview()
+        }
+
+        var heightY = CGFloat(custom.height)
+        let width = CGFloat(custom.widthSpacing)
+        let rowSizeLeft = UIScreen.main.bounds.maxX * 1.8
+        let label = UILabel()
+        label.text = "     최근 검색내역입니다"
+        label.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height:25)
+        searchedScrollView.addSubview(label)
+        label.font = UIFont.systemFont(ofSize: 12)
+        label.backgroundColor = UIColor(red: 200/255, green: 200/255, blue: 200/255, alpha: 1)
+        label.textColor = UIColor.white
+
+        for index in 0..<searchedBefore.count {
+            setSearched(x: UIScreen.main.bounds.size.width/4, y: heightY, message: searchedBefore[index], rowSize: rowSizeLeft, width: width, index:index)
+            heightY += CGFloat(custom.heightSpacing)
+        }
+        let button = UIButton()
+        button.frame = CGRect(origin: CGPoint(x: UIScreen.main.bounds.size.width/2-CGFloat(custom.buttonSizing/2), y:heightY+CGFloat(10)), size: CGSize(width: custom.buttonSizing, height: custom.height))
+
+        searchedScrollView.addSubview(button)
+        button.backgroundColor = darkBlue
+        button.setTitle("전체삭제", for: .normal)
+        button.layer.cornerRadius = 10
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 12)
+        button.addTarget(self, action: #selector(deleteSearchedAll), for: .touchUpInside)
+    }
+    func setSearched(x: CGFloat, y: CGFloat!, message: String!, rowSize: CGFloat!, width: CGFloat, index:Int) {
+        let labelButton = UIButton()
+        labelButton.setTitle(message, for: .normal)
+        labelButton.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+        labelButton.frame = CGRect(origin:CGPoint(x: x-CGFloat(5), y: y), size: CGSize(width: width, height: 20))
+        labelButton.addTarget(self, action: #selector(clickedSearched), for:.touchUpInside)
+        labelButton.setTitleColor(UIColor.black, for: .normal)
+        searchedScrollView.addSubview(labelButton)
+
+        let button = UIButton()
+        button.frame = CGRect(origin: CGPoint(x: x+width, y:y), size: CGSize(width: 20, height: 20))
+        button.setImage(UIImage(named: "icons8-delete-50.png"), for: .normal)
+        searchedScrollView.addSubview(button)
+        button.imageEdgeInsets = UIEdgeInsets(top: 3, left: 3, bottom: 3, right: 3)
+        button.addTarget(self, action: #selector(deleteSearched), for: .touchUpInside)
+        button.tag = index
+    }
+    
+    @objc func clickedSearched(sender: UIButton) {
+        print(sender.currentTitle!)
+    }
+    
+    @objc func deleteSearched(sender: UIButton) {
+        let index = sender.tag
+        searchedBefore.remove(at: index)
+        if searchedBefore.isEmpty {
+            self.view.bringSubviewToFront(lblNoPreviousSample)
+        } else {
+            setSearchedList()
+        }
+    }
+    @objc func deleteSearchedAll() {
+        searchedBefore.removeAll()
+        self.view.bringSubviewToFront(lblNoPreviousSample)
+    }
+
+    
+    private func loadMain() {
+        btnSearchCategory.backgroundColor = darkBlue
+        btnSearchCategory.setTitleColor(UIColor.white, for: .normal)
+        btnSearchHashtag.backgroundColor = darkBlue
+        btnSearchHashtag.setTitleColor(UIColor.white, for: .normal)
+
+        lblNoPreviousSample.text = "최근 검색결과가 없습니다"
+        lblNoPreviousSample.textColor = lightGray
+        lblNoPreviousSample.font.withSize(CGFloat(12))
+        lblNoPreviousSample.backgroundColor = UIColor.white
+        if !searchedBefore.isEmpty {
+            self.view.bringSubviewToFront(searchedScrollView)
+            setSearchedList()
+        }
     }
     
     private func setUpSearchBar() {
         // Make back button
         let button = UIButton(frame: CGRect(x: 0, y: self.view.frame.size.height/2, width: 20, height: 100))
-        button.setTitle("뒤로가기", for: .normal)
-        button.backgroundColor = UIColor.lightGray
+        button.setImage(UIImage(named: "0_home_20.png"), for: .normal)
+        button.imageEdgeInsets = UIEdgeInsets(top: 1, left: 1, bottom: 1, right: 1)
         button.addTarget(self, action: #selector(backButtonPressed(_:)), for: .touchUpInside)
         
         // link search bar delegate with self
@@ -49,9 +153,19 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         self.navigationController?.popViewController(animated: true)
     }
 
-    
-    private func setUpLectures() {
-        // This is sample data!@!@
+    // MARK: Data should be put(this setup should be set in appear-stage(lifecycle))
+    private func setUpSampleData(type:String = "all") {
+        if type == "all" {
+            searchedBefore.append("IC")
+            searchedBefore.append("t")
+            searchedBefore.append("zzkjdkzjdjzkjdkzdzkjdzk")
+            searchedBefore.append("파이에베이스")
+            searchedBefore.append("자바")
+            searchedBefore.append("투투")
+            searchedBefore.append("일과 이분의 일")
+        }
+        
+        // MARK: This is sample data!@!@
         lectureArray.append("ICT 바로알기")
         lectureArray.append("클라우드 바로알기")
         lectureArray.append("오늘 점심은 닭곰탕")
@@ -76,7 +190,6 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         lectureArray.append("오늘 약속은 사당역")
         lectureArray.append("불금점점임")
         lectureArray.append("IOS 화이점점팅")
-
         currentLectureArray = lectureArray
     }
     
@@ -85,6 +198,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as? SearchTableViewCell else {
             return UITableViewCell()
         }
@@ -108,14 +222,22 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         isSearchBarFocused = true
         self.searchBar.showsCancelButton = true
-        self.view.bringSubviewToFront(lblNoPreviousSample)
+        if searchedBefore.isEmpty {
+            self.view.bringSubviewToFront(lblNoPreviousSample)
+        } else {
+            self.view.bringSubviewToFront(searchedScrollView)
+        }
         print("searchBarTextDidBeginEditing")
     }
 
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard !searchText.isEmpty else {
-            self.view.bringSubviewToFront(lblNoPreviousSample)
+            if searchedBefore.isEmpty {
+                self.view.bringSubviewToFront(lblNoPreviousSample)
+            } else {
+                self.view.bringSubviewToFront(searchedScrollView)
+            }
             table.isHidden = true
             currentLectureArray = lectureArray
             table.reloadData()
@@ -134,9 +256,13 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         isSearchBarFocused = false
         table.reloadData()
-        self.view.bringSubviewToFront(lblMainLabel)
         self.view.bringSubviewToFront(btnSearchHashtag)
         self.view.bringSubviewToFront(btnSearchCategory)
+        if searchedBefore.isEmpty {
+            self.view.bringSubviewToFront(lblNoPreviousSample)
+        } else {
+            self.view.bringSubviewToFront(searchedScrollView)
+        }
         searchBar.endEditing(true)
         self.searchBar.text = ""
         self.searchBar.showsCancelButton = false

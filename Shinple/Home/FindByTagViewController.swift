@@ -9,6 +9,9 @@
 import UIKit
 
 class FindByTagViewController: UIViewController {
+    let darkBlue = UIColor(red: 11/255, green: 25/255, blue: 102/255, alpha: 1)
+    let lightGray = UIColor(red: 89/255, green: 89/255, blue: 89/255, alpha: 1)
+
     
     var clickedOnce = false
     var clickedItems = 0
@@ -16,21 +19,35 @@ class FindByTagViewController: UIViewController {
     var data = [
         "ICT", "파이어베이스", "안드로이드", "자바", "윤리",
         "기업", "기성", "파이썬", "C", "C++",
+        "CICT", "일파이어베이스", "일안드로이드", "C", "일파이어베이스",
+        "일파이어베이스", "C", "일파이썬", "일C", "일C++",
+        "일ICT", "일파이어베이스", "일안드로이드", "일파이어베이스", "일윤리",
+        "C", "일파이어베이스", "일파이썬", "일C", "일C++",
+        "일ICT", "일파이어베이스", "일안드로이드", "일자바", "C",
+        "일파이어베이스", "일기성", "일파이썬", "일C", "일C++",
         "일ICT", "일파이어베이스", "일안드로이드", "일자바", "일윤리",
-        "일기업", "일기성", "일파이썬", "일C", "일C++",
-        "일ICT", "일파이어베이스", "일안드로이드", "일자바", "일윤리",
-        "일기업", "일기성", "일파이썬", "일C", "일C++",
-        "일ICT", "일파이어베이스", "일안드로이드", "일자바", "일윤리",
-        "일기업", "일기성", "일파이썬", "일C", "일C++",
-        "일ICT", "일파이어베이스", "일안드로이드", "일자바", "일윤리",
-        "일기업", "일기성", "일파이썬", "일C", "일C++",
-        "일ICT", "일파이어베이스", "일안드로이드", "일자바", "일윤리",
+        "일기업", "일파이어베이스", "일파이썬", "일C", "일C++",
+        "일일파이어베이스", "일파이어베이스", "일안드로이드", "일자바", "일윤리",
         "일기업", "일기성", "일파이썬", "일C", "일C++",
         "일ICT", "일파이어베이스", "일안드로이드", "일자바", "일윤리",
         "일기업", "일기성", "일파이썬", "일C", "일C++"
     ]
     var dataClicked = [Bool?]()
     var buttons = [UIButton?]()
+    struct cgFloatInt {
+        var width: Int
+        var height: Int
+        var widthSpacing: Int
+        var heightSpacing: Int
+        init(w: Int, h:Int, ws:Int, hs:Int) {
+            width = w
+            height = h
+            widthSpacing = ws
+            heightSpacing = hs
+        }
+    }
+    var custom: cgFloatInt = cgFloatInt(w: 5, h: 30, ws: 5, hs:35)
+
     
     @IBOutlet weak var initClicked: UIButton!
     @IBOutlet weak var search: UIButton!
@@ -44,6 +61,16 @@ class FindByTagViewController: UIViewController {
         scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: nowYOffset)
         scrollView.canCancelContentTouches = true
         self.view.bringSubviewToFront(scrollView)
+        setMainLayout()
+    }
+    
+    func setMainLayout() {
+        initClicked.backgroundColor = lightGray
+        initClicked.setTitleColor(UIColor.white, for: .normal)
+        initClicked.setTitle("선택 초기화", for: .normal)
+        search.backgroundColor = darkBlue
+        search.setTitleColor(UIColor.white, for: .normal)
+        search.setTitle("검색", for: .normal)
     }
     
     func setLabel(x: CGFloat, y: CGFloat, message: String) {
@@ -54,35 +81,35 @@ class FindByTagViewController: UIViewController {
     }
     
     func setButtons(_ data: [String], famousIndex: Int) {
-        var rowSizeLeft =  UIApplication.shared.keyWindow?.frame.width
+        var rowSizeLeft =  UIScreen.main.bounds.size.width
 //            UIScreen.main.bounds.maxX * 1.8
-        var rowX = CGFloat(5)
-        var heightY = CGFloat(50)
-        let spacing = CGFloat(5)
-        
+        var rowX = CGFloat(custom.width)
+        var heightY = CGFloat(custom.height)
+        let spacing = CGFloat(custom.widthSpacing)
+        // icons8-delete-50
         setLabel(x: rowX, y: heightY, message: "인기 키워드")
-        heightY += CGFloat(35)
+        heightY += CGFloat(custom.heightSpacing)
         for index in 0..<data.count {
             dataClicked.append(false)
             if index == famousIndex {
                 rowSizeLeft = UIScreen.main.bounds.maxX * 1.8
-                heightY += CGFloat(75)
-                rowX = CGFloat(5)
+                heightY += CGFloat(custom.heightSpacing+40)
+                rowX = CGFloat(custom.widthSpacing)
                 setLabel(x: rowX, y: heightY, message: "일반 키워드")
-                heightY += CGFloat(35)
+                heightY += CGFloat(custom.heightSpacing)
             }
             let button = setButton(data[index])
             let nowItemSizeX = button.center.x * 2 + spacing
-            if (nowItemSizeX + rowX) > rowSizeLeft! {
+            if (nowItemSizeX + rowX) > rowSizeLeft {
                 rowSizeLeft = UIScreen.main.bounds.maxX * 1.8
                 heightY += button.center.y * 2.5 + spacing
-                rowX = CGFloat(5)
+                rowX = CGFloat(custom.width)
             }
             button.frame = CGRect(x: rowX, y: heightY, width: nowItemSizeX-spacing, height: button.center.y*2)
             button.tag = index
             buttons.append(button)
             self.scrollView.addSubview(button)
-            rowSizeLeft! -= nowItemSizeX
+            rowSizeLeft -= nowItemSizeX
             rowX += nowItemSizeX
         }
         nowYOffset = heightY + CGFloat(100)
@@ -91,7 +118,7 @@ class FindByTagViewController: UIViewController {
     func setButton(_ title: String) -> UIButton {
         let button = UIButton()
         button.setTitle(title, for: .normal)
-        button.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
+        button.backgroundColor = UIColor.white
         button.layer.borderWidth = 0.5
         button.sizeToFit()
         button.layer.cornerRadius = 10
@@ -105,11 +132,11 @@ class FindByTagViewController: UIViewController {
     
     @objc func buttonAction(sender: UIButton!) {
         if dataClicked[sender.tag]! {
-            sender.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
+            sender.backgroundColor = UIColor.white
             sender.setTitleColor(UIColor.black, for: .normal)
             clickedItems -= 1
         } else {
-            sender.backgroundColor = UIColor(red: 10/255, green: 10/255, blue: 255/255, alpha: 1)
+            sender.backgroundColor = darkBlue
             sender.setTitleColor(UIColor.white, for: .normal)
             clickedItems += 1
         }
@@ -127,13 +154,14 @@ class FindByTagViewController: UIViewController {
         for index in 0..<dataClicked.count {
             if dataClicked[index]! {
                 dataClicked[index] = false
-                buttons[index]!.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
+                buttons[index]!.backgroundColor = UIColor.white
                 buttons[index]!.setTitleColor(UIColor.black, for: .normal)
             }
         }
         self.view.bringSubviewToFront(scrollView)
     }
     
+    // MARK: - 클릭 후 액션 이벤트 발생
     @IBAction func searchClickedItems(_ sender: UIButton) {
         var selected = [String?]()
         for index in 0..<dataClicked.count {
