@@ -51,5 +51,5 @@ class AlertTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
-
+    
 }
