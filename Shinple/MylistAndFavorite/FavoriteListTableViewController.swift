@@ -15,7 +15,7 @@ class FavoriteListTableViewController: UITableViewController {
     var date: String = "19.09.09"
     var number: Int = 80
     
-    var imagieFiles = ["video.png", "video2.png", "video3.png", "video4.png", "video5.png","video.png", "video2.png", "video3.png", "video4.png", "video5.png"]
+    var imagieFiles = ["video5.png","video.png", "video2.png"]
     
     let heartEmpty = UIImage(named: "heart_empty.png")
     let heartFull = UIImage(named: "heart_full.png")
@@ -52,11 +52,7 @@ class FavoriteListTableViewController: UITableViewController {
         cell.imgVideo.image = UIImage(named: imagieFiles[indexPath.row])
         cell.imgVideo.translatesAutoresizingMaskIntoConstraints = true
         
-        if indexPath.row % 2 == 0 {
-            cell.imgFavorite.image = heartFull
-        }else {
-            cell.imgFavorite.image = heartEmpty
-        }
+        cell.imgFavorite.image = heartFull
         
         return cell
     }

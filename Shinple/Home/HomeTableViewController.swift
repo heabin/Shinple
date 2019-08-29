@@ -23,7 +23,7 @@ class HomeTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     var userName = "권민재"
-    var categories = ["마이페이지", "최근 시청 강의", "인기 강의", "신규 강의"]
+    var categories = ["마이페이지", "최근 시청 강의", "인기 TOP5", "관심태그 강의","신규 강의"]
     
     //TableView cell
     
@@ -32,7 +32,7 @@ class HomeTableViewController: UITableViewController {
         let row = indexPath.row
         
         if row == 0 {
-            return 120
+            return 80
         } else {
             return 160
         }
@@ -57,21 +57,27 @@ class HomeTableViewController: UITableViewController {
             
             cell.lblName.text = userName + "님, 안녕하세요!"
             
-            
             return cell
         }else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "HomeCategoryTableViewCell") as! HomeCategoryTableViewCell
             let status = categories[indexPath.row]
             cell.lblCategory.text = status
             cell.collectionView.tag = indexPath.row
-            cell.btnSeeMore.addTarget(self, action: #selector(goToPage), for: .touchUpInside)
-            
+            if row == 1 {
+                cell.btnSeeMore.addTarget(self, action: #selector(goToPageLibrary), for: .touchUpInside)
+            } else {
+                cell.btnSeeMore.addTarget(self, action: #selector(goToPageList), for: .touchUpInside)
+            }
             return cell
         }
     }
     
-    @objc func goToPage() {
+    @objc func goToPageLibrary() {
         performSegue(withIdentifier: "goToLibrary", sender: nil)
+    }
+    
+    @objc func goToPageList() {
+        performSegue(withIdentifier: "goToList", sender: nil)
     }
     
     func goToDetailPage() {

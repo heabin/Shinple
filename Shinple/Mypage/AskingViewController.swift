@@ -13,7 +13,7 @@ class AskingViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     // =============== Initialize ===============
     // 문의유형
-    var lists = ["사용장애", "강좌요청", "사용문의"]
+    var lists = ["사용장애", "강좌요청", "사용문의", "기타"]
     // 피커뷰 인덱스 간격(2개 함수에서 사용)
     let pickerViewHeight:CGFloat = 40.0
     // 텍스트필드 패딩
@@ -28,28 +28,42 @@ class AskingViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBOutlet weak var txtViewContents: UITextView!
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var btnSubmit: UIButton!
+    @IBOutlet weak var lblLine1: UILabel!
+    @IBOutlet weak var lblLine2: UILabel!
+    
     // =============== /Outlet ===============
+
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // UI 상세 설정
-        btnType.layer.borderWidth = 1
-        btnType.layer.cornerRadius = 10.0
+        lblLine1.layer.borderWidth = 1
+        lblLine1.layer.borderColor = UIColor.lightGray.cgColor
+        lblLine2.layer.borderWidth = 1
+        lblLine2.layer.borderColor = UIColor.lightGray.cgColor
+        
+        btnType.layer.borderWidth = 0
+//        btnType.layer.cornerRadius = 10.0
         btnType.titleEdgeInsets = UIEdgeInsets(top: 0, left: 6, bottom: 0, right: 6)
-        txtFieldTitle.layer.borderWidth = 1
-        txtFieldTitle.layer.cornerRadius = 10.0
+        txtFieldTitle.layer.borderWidth = 0
+//        txtFieldTitle.layer.cornerRadius = 10.0
         txtFieldTitle.leftView = leftView
         txtFieldTitle.leftViewMode = .always
-        txtViewContents.layer.borderWidth = 1
-        txtViewContents.layer.cornerRadius = 10.0
-        btnSubmit.layer.borderWidth = 1
-        btnSubmit.layer.cornerRadius = 10.0
+        txtViewContents.layer.borderWidth = 0
+//        txtViewContents.layer.cornerRadius = 10.0
+        btnSubmit.layer.borderWidth = 0
+        btnSubmit.layer.cornerRadius = 6.0
         btnSubmit.contentHorizontalAlignment = .center
+        //그레이 색깔 다시 찾기
+        btnSubmit.layer.backgroundColor = UIColor.lightGray.cgColor
+        
+        
         
         // 피커뷰 감추기
         pickerView.isHidden = true
+        
     }
     
     
@@ -94,20 +108,20 @@ class AskingViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     // 피커뷰 디자인
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        
+
         let label: UILabel?
         if(view == nil){
             label = UILabel(frame: CGRect(x: 0.0, y: 0.0, width: pickerView.frame.width, height: pickerViewHeight))
         }else{
             label = view as? UILabel
         }
-        
+
         label!.text = lists[row]
         label?.textAlignment = .center
         label?.font = UIFont.boldSystemFont(ofSize: 18)
         label?.textColor = .white
         label?.backgroundColor = .darkGray
-        
+
         return label!
     }
     // =============== /PickerView ===============
