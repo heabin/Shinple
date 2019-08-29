@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 extension CALayer {
+    
     // Sketch 스타일의 그림자를 생성하는 유틸리티 함수
     func applyShadow(
         color: UIColor = .black,
@@ -57,16 +58,5 @@ class TabBarController: UITabBarController {
         tabBar.sizeThatFits(CGSize(width: 88, height: 88))
 
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

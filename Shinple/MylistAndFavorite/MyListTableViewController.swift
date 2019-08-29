@@ -24,12 +24,6 @@ class MyListTableViewController: UITableViewController {
         super.viewDidLoad()
 
     }
-
-    // MARK: - Table view data source
-
-//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 100
-//    }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
